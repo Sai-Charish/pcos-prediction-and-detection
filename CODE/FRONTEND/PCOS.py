@@ -7,8 +7,8 @@ import os
 
 
 # Load the trained models
-xgb_model = joblib.load('best_xgb_model.pkl')
-lr_model = joblib.load('best_lr_model.pkl')
+xgb_model = joblib.load('./FRONTEND/best_xgb_model.pkl')
+lr_model = joblib.load('./FRONTEND/best_lr_model.pkl')
 
 
 
@@ -230,7 +230,7 @@ def prediction_page():
         prediction = model.predict(input_df)[0]
         
         if prediction == 1:
-            st.error("You have been diagnosed with PCOS.")
+            st.error("You may have been diagnosed with PCOS.")
             st.success(''' Suggestions : \n
                      \nFood Choices:
 
@@ -250,7 +250,7 @@ Lifestyle Tips:
 ✔ Reduce stress—listen to music, meditate, or take deep breaths.  
 ✔ Stay active—take the stairs, walk after meals.''')
         else:
-            st.success("You are safe (no PCOS detected).")
+            st.success("You seem to be safe (no PCOS symptoms detected).")
             
 
 # Main function to control page flow
